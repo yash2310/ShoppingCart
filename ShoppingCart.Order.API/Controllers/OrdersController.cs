@@ -66,13 +66,13 @@ namespace ShoppingCart.Order.API.Controllers
                     OrderId = order.Id,
                     Amount = order.TotalAmount,
                     Email = "abc@abc.com",
-                    Event = "Payment Published",
+                    Event = EventType.PaymentPublished,
                     Status = PaymentStatus.Pending
                 };
 
                 messageBusClient.PublishNewPayment(messageBusDto);
 
-                return Ok(orderService.CreateOrder(createDto));
+                return Ok(order);
             }
             catch (Exception ex)
             {

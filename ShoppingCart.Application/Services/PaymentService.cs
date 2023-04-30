@@ -7,6 +7,7 @@ using ShoppingCart.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,6 +43,11 @@ namespace ShoppingCart.Application.Services
                 return mapper.Map<PaymentReadDto>(payment);
 
             return null;
+        }
+
+        public bool PaymentExist(Expression<Func<Payment, bool>> expression)
+        {
+            return repository.Any(expression);
         }
 
         public PaymentReadDto? UpdatePayment(int paymentId, PaymentStatus status)

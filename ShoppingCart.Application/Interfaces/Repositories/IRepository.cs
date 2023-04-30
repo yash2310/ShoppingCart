@@ -15,5 +15,6 @@ namespace ShoppingCart.Application.Interfaces.Repositories
         void Add(T entity);
         void Update(T entity);
         void Delete(Expression<Func<T, bool>> expression);
+        bool Any(Expression<Func<T, bool>> expression);
     }
 }

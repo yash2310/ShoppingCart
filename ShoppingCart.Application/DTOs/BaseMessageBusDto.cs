@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCart.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace ShoppingCart.Application.DTOs
 {
     public class BaseMessageBusDto
     {
-        public string Event { get; set; } = string.Empty;
+        public EventType Event { get; set; }
     }
 }

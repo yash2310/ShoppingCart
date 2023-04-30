@@ -27,6 +27,11 @@ namespace ShoppingCart.Payment.Infra.Repositories
             dbContext.SaveChanges();
         }
 
+        public bool Any(Expression<Func<T, bool>> expression)
+        {
+            return entities.Any(expression);
+        }
+
         public void Delete(Expression<Func<T, bool>> expression)
         {
             var entity = entities.SingleOrDefault(expression);

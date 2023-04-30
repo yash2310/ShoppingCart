@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using ShoppingCart.Application.DataService.PublisherDataService;
 using ShoppingCart.Application.DataService.PublisherDataService.Interface;
+using ShoppingCart.Application.DataService.SubscriberDataService;
+using ShoppingCart.Application.EventProcessing;
 using ShoppingCart.Application.Interfaces.Repositories;
 using ShoppingCart.Application.Interfaces.Services;
 using ShoppingCart.Application.Services;
@@ -19,7 +21,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+#region Publisher/Subscriber
+
 builder.Services.AddSingleton<IPaymentMessageBusClient, PaymentMessageBusClient>();
+
+#endregion
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IOrderService, OrderService>();
 
