@@ -3,12 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using ShoppingCart.Application.Authentication;
 using ShoppingCart.Application.DataService.PublisherDataService;
 using ShoppingCart.Application.DataService.PublisherDataService.Interface;
-using ShoppingCart.Application.DataService.SubscriberDataService;
-using ShoppingCart.Application.EventProcessing;
 using ShoppingCart.Application.Interfaces.Repositories;
 using ShoppingCart.Application.Interfaces.Services;
 using ShoppingCart.Application.Services;
-using ShoppingCart.Domain.Entities;
 using ShoppingCart.Order.Infra.Data;
 using ShoppingCart.Order.Infra.Repositories;
 
@@ -42,10 +39,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 #endregion
 
+#region DB Context
+
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
     option.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 });
+
+#endregion
 
 var app = builder.Build();
 
@@ -57,6 +58,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -42,10 +42,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 #endregion
 
+#region DB Context
+
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
     option.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 });
+
+#endregion
 
 var app = builder.Build();
 
