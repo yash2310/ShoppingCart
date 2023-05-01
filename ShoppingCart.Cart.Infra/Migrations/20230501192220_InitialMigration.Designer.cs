@@ -12,7 +12,7 @@ using ShoppingCart.Cart.Infra.Data;
 namespace ShoppingCart.Cart.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230501175342_InitialMigration")]
+    [Migration("20230501192220_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace ShoppingCart.Cart.Infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShoppingCart.Domain.Entities.Cart", b =>
+            modelBuilder.Entity("ShoppingCart.Domain.Entities.Cart.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,10 +35,29 @@ namespace ShoppingCart.Cart.Infra.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ProductCategory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
+                    b.Property<string>("ProductImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ProductPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductQuantity")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedOn")

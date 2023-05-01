@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace ShoppingCart.Cart.Infra.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : ICartRepository<T> where T : Domain.Entities.Cart
     {
         private readonly AppDbContext dbContext;
         private readonly DbSet<T> entities;
@@ -54,6 +54,11 @@ namespace ShoppingCart.Cart.Infra.Repositories
         public void SaveChanges()
         {
             dbContext.SaveChanges();
+        }
+
+        public Domain.Entities.Cart? GetWithProduct(int userId)
+        {
+            return dbContext.Carts.Include(c => c.CartProducts).FirstOrDefault(c => c.UserId == userId);
         }
     }
 }

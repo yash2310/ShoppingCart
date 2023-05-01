@@ -3,7 +3,6 @@
     public class Cart : BaseEntity
     {
         public int UserId { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
+        public ICollection<CartProduct> CartProducts { get; set; } = new List<CartProduct>();
     }
 }

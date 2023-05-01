@@ -12,7 +12,7 @@ using ShoppingCart.Product.Infra.Data;
 namespace ShoppingCart.Product.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230501180241_InitialMigration")]
+    [Migration("20230501192254_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace ShoppingCart.Product.Infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShoppingCart.Domain.Entities.Product", b =>
+            modelBuilder.Entity("ShoppingCart.Domain.Entities.Product.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,6 +45,10 @@ namespace ShoppingCart.Product.Infra.Migrations
 
                     b.Property<int>("DiscountId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()

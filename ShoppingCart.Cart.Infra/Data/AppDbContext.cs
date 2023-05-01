@@ -7,5 +7,6 @@ namespace ShoppingCart.Cart.Infra.Data
         public AppDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Domain.Entities.Cart> Carts { get; set; }
+        public DbSet<Domain.Entities.CartProduct> CartProducts { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace ShoppingCart.Product.Infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShoppingCart.Domain.Entities.Product", b =>
+            modelBuilder.Entity("ShoppingCart.Domain.Entities.Product.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,6 +43,10 @@ namespace ShoppingCart.Product.Infra.Migrations
 
                     b.Property<int>("DiscountId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
