@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShoppingCart.Domain.Enums;
 
 namespace ShoppingCart.Application.DTOs.User
 {
@@ -10,9 +6,12 @@ namespace ShoppingCart.Application.DTOs.User
     {
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
         public string Firstname { get; set; } = string.Empty;
         public string Lastname { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public int MobileNumber { get; set; }
+        public UserRole UserRole { get; set; }
+        public UserStatus IsActive { get; set; }
     }
 }

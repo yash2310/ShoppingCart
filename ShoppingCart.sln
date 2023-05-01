@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.User.API", "ShoppingCart.User.API\ShoppingCart.User.API.csproj", "{002A23DC-5155-40EF-B9EB-B0BF6CD09454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.User.API", "ShoppingCart.User.API\ShoppingCart.User.API.csproj", "{002A23DC-5155-40EF-B9EB-B0BF6CD09454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Product.API", "ShoppingCart.Product.API\ShoppingCart.Product.API.csproj", "{04F6C120-2E62-4FBE-B0ED-856D216AA70B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Product.API", "ShoppingCart.Product.API\ShoppingCart.Product.API.csproj", "{04F6C120-2E62-4FBE-B0ED-856D216AA70B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Discount.API", "ShoppingCart.Discount.API\ShoppingCart.Discount.API.csproj", "{E213A049-551E-41F4-BA96-3FE795B9B70F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Discount.API", "ShoppingCart.Discount.API\ShoppingCart.Discount.API.csproj", "{E213A049-551E-41F4-BA96-3FE795B9B70F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Cart.API", "ShoppingCart.Cart.API\ShoppingCart.Cart.API.csproj", "{567689A6-9CF1-4F8B-955E-612D5B0495AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Cart.API", "ShoppingCart.Cart.API\ShoppingCart.Cart.API.csproj", "{567689A6-9CF1-4F8B-955E-612D5B0495AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Order.API", "ShoppingCart.Order.API\ShoppingCart.Order.API.csproj", "{08EA0ABC-5D9D-4585-99D7-62E8757CAEC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Order.API", "ShoppingCart.Order.API\ShoppingCart.Order.API.csproj", "{08EA0ABC-5D9D-4585-99D7-62E8757CAEC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Payment.API", "ShoppingCart.Payment.API\ShoppingCart.Payment.API.csproj", "{AD84F18A-22DB-477D-BB0C-B0214DD929B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Payment.API", "ShoppingCart.Payment.API\ShoppingCart.Payment.API.csproj", "{AD84F18A-22DB-477D-BB0C-B0214DD929B2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2C5FE79F-0FAE-479F-8A8B-061ABEF35565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Domain", "ShoppingCart.Domain\ShoppingCart.Domain.csproj", "{28A155A3-F458-4489-9ACB-E9BC107C95C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Domain", "ShoppingCart.Domain\ShoppingCart.Domain.csproj", "{28A155A3-F458-4489-9ACB-E9BC107C95C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart.Product", "ShoppingCart.Product", "{526AEBB8-BA37-434B-8336-F88A23323633}"
 EndProject
@@ -31,11 +31,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart.Order", "Shopp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart.Payment", "ShoppingCart.Payment", "{DB6997A8-BD35-4700-9F30-DB1E30E066DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Application", "ShoppingCart.Application\ShoppingCart.Application.csproj", "{AEA4BA37-5605-432E-8401-DF6324845533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Application", "ShoppingCart.Application\ShoppingCart.Application.csproj", "{AEA4BA37-5605-432E-8401-DF6324845533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Order.Infra", "ShoppingCart.Order.Infra\ShoppingCart.Order.Infra.csproj", "{3DF33780-B515-4292-AAA0-33AAB98AC88C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Order.Infra", "ShoppingCart.Order.Infra\ShoppingCart.Order.Infra.csproj", "{3DF33780-B515-4292-AAA0-33AAB98AC88C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Payment.Infra", "ShoppingCart.Payment.Infra\ShoppingCart.Payment.Infra.csproj", "{389E5E9F-A8BA-4887-A18B-5CD418C48295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Payment.Infra", "ShoppingCart.Payment.Infra\ShoppingCart.Payment.Infra.csproj", "{389E5E9F-A8BA-4887-A18B-5CD418C48295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.User.Infra", "ShoppingCart.User.Infra\ShoppingCart.User.Infra.csproj", "{1FF425C9-A5CA-4C84-99F9-01C4E3855000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,10 @@ Global
 		{389E5E9F-A8BA-4887-A18B-5CD418C48295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389E5E9F-A8BA-4887-A18B-5CD418C48295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389E5E9F-A8BA-4887-A18B-5CD418C48295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF425C9-A5CA-4C84-99F9-01C4E3855000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF425C9-A5CA-4C84-99F9-01C4E3855000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF425C9-A5CA-4C84-99F9-01C4E3855000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF425C9-A5CA-4C84-99F9-01C4E3855000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{AEA4BA37-5605-432E-8401-DF6324845533} = {2C5FE79F-0FAE-479F-8A8B-061ABEF35565}
 		{3DF33780-B515-4292-AAA0-33AAB98AC88C} = {8B9CCFB1-3AB9-452C-A701-E2A36798653C}
 		{389E5E9F-A8BA-4887-A18B-5CD418C48295} = {DB6997A8-BD35-4700-9F30-DB1E30E066DA}
+		{1FF425C9-A5CA-4C84-99F9-01C4E3855000} = {9E3B14F7-DADA-4754-B53D-90DD30945AF5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEFABC03-D7A5-4AD5-81ED-FEB938985B51}

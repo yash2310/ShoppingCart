@@ -1,23 +1,18 @@
 ﻿using ShoppingCart.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShoppingCart.Domain.Entities
+namespace ShoppingCart.Application.DTOs.User
 {
-    public class User : BaseEntity
+    public class UserUpdateDto
     {
+        public int Id { get; set; }
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
+        public string NewPassword { get; set; } = string.Empty;
         public string Firstname { get; set; } = string.Empty;
         public string Lastname { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
-        public int MobileNumber { get; set; }
-        public UserRole UserRole { get; set; }
-        public UserStatus IsActive { get; set; }
+        public UserStatus UserStatus { get; set; }
+        public UserUpdateType updateType { get; set; }
         public string? RefreshToken { get; set; }
-        public DateTime? RefreshTokenExpiryTime { get; set; }
     }
 }

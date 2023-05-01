@@ -22,4 +22,11 @@ namespace ShoppingCart.Domain.Enums
         Canceled,
         Failed
     }
+
+    public enum UserStatus
+    {
+        New,
+        Active,
+        Blocked
+    }
 }

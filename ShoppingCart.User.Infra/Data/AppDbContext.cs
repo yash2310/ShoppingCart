@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ShoppingCart.Payment.Infra.Data
+namespace ShoppingCart.User.Infra.Data
 {
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Domain.Entities.Payment> Payments { get; set; }
+        public DbSet<Domain.Entities.User> Users { get; set; }
     }
 }

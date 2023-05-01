@@ -1,19 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShoppingCart.Application.Interfaces.Repositories;
-using ShoppingCart.Payment.Infra.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using ShoppingCart.User.Infra.Data;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShoppingCart.Payment.Infra.Repositories
+namespace ShoppingCart.User.Infra.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly AppDbContext dbContext;
-        private DbSet<T> entities;
+        private readonly DbSet<T> entities;
 
         public Repository(AppDbContext dbContext)
         {
@@ -24,7 +19,6 @@ namespace ShoppingCart.Payment.Infra.Repositories
         public void Add(T entity)
         {
             entities.Add(entity);
-            
         }
 
         public bool Any(Expression<Func<T, bool>> expression)
@@ -34,10 +28,11 @@ namespace ShoppingCart.Payment.Infra.Repositories
 
         public void Delete(Expression<Func<T, bool>> expression)
         {
-            var entity = entities.SingleOrDefault(expression);
-            if (entity != null)
+            var data = entities.SingleOrDefault(expression);
+
+            if (data != null)
             {
-                entities.Remove(entity);
+                entities.Remove(data);
             }
         }
 

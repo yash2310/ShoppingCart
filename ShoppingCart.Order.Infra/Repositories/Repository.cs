@@ -25,7 +25,6 @@ namespace ShoppingCart.Order.Infra.Repositories
         public void Add(T entity)
         {
             entities.Add(entity);
-            dbContext.SaveChanges();
         }
 
         public bool Any(Expression<Func<T, bool>> expression)
@@ -40,8 +39,6 @@ namespace ShoppingCart.Order.Infra.Repositories
             {
                 entities.Remove(entity);
             }
-
-            dbContext.SaveChanges();
         }
 
         public void Delete(int id)
@@ -62,6 +59,10 @@ namespace ShoppingCart.Order.Infra.Repositories
         public void Update(T entity)
         {
             entities.Update(entity);
+        }
+
+        public void SaveChanges()
+        {
             dbContext.SaveChanges();
         }
     }

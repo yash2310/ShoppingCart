@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using ShoppingCart.Application.DataService.PublisherDataService;
-using ShoppingCart.Application.DataService.PublisherDataService.Interface;
 using ShoppingCart.Application.DataService.SubscriberDataService;
 using ShoppingCart.Application.EventProcessing;
 using ShoppingCart.Application.Interfaces.Repositories;
