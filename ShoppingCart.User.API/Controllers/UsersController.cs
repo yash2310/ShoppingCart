@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using ShoppingCart.Application.Common;
+using ShoppingCart.Application.DTOs;
 using ShoppingCart.Application.DTOs.User;
 using ShoppingCart.Application.Interfaces.Services;
 using ShoppingCart.Domain.Entities;
@@ -28,7 +30,7 @@ namespace ShoppingCart.User.API.Controllers
             this.mapper = mapper;
         }
 
-        [HttpPost("login")] 
+        [HttpPost("login")]
         public IActionResult Login(UserLoginDto loginDto)
         {
             var user = userService.GetUser(u =>
@@ -36,9 +38,9 @@ namespace ShoppingCart.User.API.Controllers
             u.Password == loginDto.Password &&
             u.IsActive == Domain.Enums.UserStatus.Active);
 
-            if(user == null)
+            if (user == null)
             {
-                return NotFound();
+                return NotFound(ServiceResponse.CreateResponse(false, "Invalid Username or Password", null));
             }
 
             var claims = new[]
@@ -62,7 +64,7 @@ namespace ShoppingCart.User.API.Controllers
                 RefreshToken = refreshToken,
             };
 
-            return Ok(authData);
+            return Ok(ServiceResponse.CreateResponse(true, null, authData));
         }
 
         [HttpPost("register")]
@@ -72,12 +74,12 @@ namespace ShoppingCart.User.API.Controllers
 
             if (user != null)
             {
-                return BadRequest("User with the same email id already exist");
+                return BadRequest(ServiceResponse.CreateResponse(false, "User with the same email id already exist", null));
             }
 
             userService.CreateUser(createDto);
 
-            return Ok();
+            return Ok(ServiceResponse.CreateResponse(true, "User registered successfully", null));
         }
     }
 }

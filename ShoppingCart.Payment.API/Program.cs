@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using ShoppingCart.Application.Authentication;
 using ShoppingCart.Application.DataService.SubscriberDataService;
 using ShoppingCart.Application.EventProcessing;
 using ShoppingCart.Application.Interfaces.Repositories;
@@ -29,6 +31,16 @@ builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+
+#region JWT Authentication
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = JwtHandler.GetValidationParameter(configuration);
+    });
+
+#endregion
 
 builder.Services.AddDbContext<AppDbContext>(option =>
 {

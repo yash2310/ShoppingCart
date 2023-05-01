@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingCart.Application.Common;
 using ShoppingCart.Application.DTOs.User;
 using ShoppingCart.Application.Interfaces.Services;
 
@@ -27,16 +28,16 @@ namespace ShoppingCart.User.API.Controllers
         {
             if (userAuthDto == null)
             {
-                return BadRequest("Invalid client request");
+                return BadRequest(ServiceResponse.CreateResponse(false, "Invalid client request", null));
             }
 
             var claimPrincipal = tokenService.GetPrincipalFromExpiredToken(userAuthDto.AccessToken);
-            var username = claimPrincipal.Identity.Name;
+            var username = claimPrincipal.Identity?.Name;
 
             var user = userService.GetUserForAuth(u => u.Email == username);
 
             if (user == null || user.RefreshToken != userAuthDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
-                return BadRequest("Invalid client request");
+                return BadRequest(ServiceResponse.CreateResponse(false, "Invalid client request", null));
 
             var accessToken = tokenService.GenerateAccessToken(claimPrincipal.Claims);
             var refreshToken = tokenService.GenerateRefreshToken();
@@ -58,7 +59,7 @@ namespace ShoppingCart.User.API.Controllers
         [HttpGet("revoke"), Authorize]
         public IActionResult Revoke()
         {
-            var username = User.Identity.Name;
+            var username = User.Identity?.Name;
             var user = userService.GetUserForAuth(u => u.Email == username);
             if (user == null) return BadRequest();
 

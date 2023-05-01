@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShoppingCart.Application.Common;
 using ShoppingCart.Application.DataService.PublisherDataService.Interface;
 using ShoppingCart.Application.DTOs.Order;
@@ -22,6 +23,7 @@ namespace ShoppingCart.Order.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult GetAll()
         {
             try
