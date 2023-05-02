@@ -5,4 +5,11 @@
         PaymentPublished,
         Undetermined
     }
+
+    public enum ActionType
+    {
+        Insert,
+        Update,
+        Delete
+    }
 }

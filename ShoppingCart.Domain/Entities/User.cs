@@ -10,7 +10,7 @@ namespace ShoppingCart.Domain.Entities
         public string Lastname { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public int MobileNumber { get; set; }
-        public UserRole UserRole { get; set; }
+        public string Role { get; set; } = string.Empty;
         public UserStatus IsActive { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }

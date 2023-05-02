@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using ShoppingCart.Application.Common;
+using System.Security.Claims;
 
 namespace ShoppingCart.Application.Interfaces.Services
 {
@@ -6,6 +7,7 @@ namespace ShoppingCart.Application.Interfaces.Services
     {
         string GenerateAccessToken(IEnumerable<Claim> claims);
         string GenerateRefreshToken();
-        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+        ClaimsPrincipal GetPrincipalFromToken(string token);
+        CurrentUser GetCurrentUser(string token);
     }
 }

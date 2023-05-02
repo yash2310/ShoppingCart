@@ -1,15 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using ShoppingCart.Application.Common;
-using ShoppingCart.Application.DTOs;
 using ShoppingCart.Application.DTOs.User;
 using ShoppingCart.Application.Interfaces.Services;
-using ShoppingCart.Domain.Entities;
-using System.IdentityModel.Tokens.Jwt;
+using ShoppingCart.Domain.Enums;
 using System.Security.Claims;
-using System.Text;
 
 namespace ShoppingCart.User.API.Controllers
 {
@@ -19,21 +14,19 @@ namespace ShoppingCart.User.API.Controllers
     {
         private readonly IUserService userService;
         private readonly ITokenService tokenService;
-        private readonly IConfiguration configuration;
         private readonly IMapper mapper;
 
-        public UsersController(IUserService userService, ITokenService tokenService, IConfiguration configuration, IMapper mapper)
+        public UsersController(IUserService userService, ITokenService tokenService, IMapper mapper)
         {
             this.userService = userService;
             this.tokenService = tokenService;
-            this.configuration = configuration;
             this.mapper = mapper;
         }
 
         [HttpPost("login")]
         public IActionResult Login(UserLoginDto loginDto)
         {
-            var user = userService.GetUser(u =>
+            var user = userService.GetUserForAuth(u =>
             u.Email == loginDto.Email &&
             u.Password == loginDto.Password &&
             u.IsActive == Domain.Enums.UserStatus.Active);
@@ -46,7 +39,8 @@ namespace ShoppingCart.User.API.Controllers
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.Email),
-                new Claim(ClaimTypes.Role, user.UserRole.ToString())
+                new Claim("UserId", user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.Role)
             };
 
             var accessToken = tokenService.GenerateAccessToken(claims);
@@ -54,7 +48,7 @@ namespace ShoppingCart.User.API.Controllers
 
             var updateDto = mapper.Map<UserUpdateDto>(user);
             updateDto.RefreshToken = refreshToken;
-            updateDto.updateType = Domain.Enums.UserUpdateType.Token;
+            updateDto.updateType = UserUpdateType.Token;
 
             userService.UpdateUser(updateDto);
 

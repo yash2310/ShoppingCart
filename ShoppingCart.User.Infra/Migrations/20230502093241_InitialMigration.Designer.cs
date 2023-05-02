@@ -12,7 +12,7 @@ using ShoppingCart.User.Infra.Data;
 namespace ShoppingCart.User.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230430200442_InitialMigration")]
+    [Migration("20230502093241_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,11 +67,12 @@ namespace ShoppingCart.User.Infra.Migrations
                     b.Property<DateTime?>("RefreshTokenExpiryTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("UserRole")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

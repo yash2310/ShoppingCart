@@ -65,15 +65,16 @@ namespace ShoppingCart.User.Infra.Migrations
                     b.Property<DateTime?>("RefreshTokenExpiryTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserRole")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

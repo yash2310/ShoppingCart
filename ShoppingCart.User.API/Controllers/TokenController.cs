@@ -31,7 +31,7 @@ namespace ShoppingCart.User.API.Controllers
                 return BadRequest(ServiceResponse.CreateResponse(false, "Invalid client request", null));
             }
 
-            var claimPrincipal = tokenService.GetPrincipalFromExpiredToken(userAuthDto.AccessToken);
+            var claimPrincipal = tokenService.GetPrincipalFromToken(userAuthDto.AccessToken);
             var username = claimPrincipal.Identity?.Name;
 
             var user = userService.GetUserForAuth(u => u.Email == username);

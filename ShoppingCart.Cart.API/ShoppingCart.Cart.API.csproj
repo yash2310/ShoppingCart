@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ShoppingCart.Application\ShoppingCart.Application.csproj" />
     <ProjectReference Include="..\ShoppingCart.Cart.Infra\ShoppingCart.Cart.Infra.csproj" />
   </ItemGroup>

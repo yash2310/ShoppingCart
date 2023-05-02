@@ -21,7 +21,7 @@ namespace ShoppingCart.User.Infra.Migrations
                     Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MobileNumber = table.Column<int>(type: "int", nullable: false),
-                    UserRole = table.Column<int>(type: "int", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<int>(type: "int", nullable: false),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: true),

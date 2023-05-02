@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using ShoppingCart.Application.Common;
 using ShoppingCart.Application.Interfaces.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -44,7 +45,7 @@ namespace ShoppingCart.Application.Services
             }
         }
 
-        public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
+        public ClaimsPrincipal? GetPrincipalFromToken(string token)
         {
             try
             {
@@ -76,6 +77,19 @@ namespace ShoppingCart.Application.Services
             {
                 return null;
             }
+        }
+
+        public CurrentUser GetCurrentUser(string token)
+        {
+            var claims = GetPrincipalFromToken(token);
+
+            var currentUser = new CurrentUser
+            {
+                UserId = Convert.ToInt32(claims.FindFirst("UserId").Value),
+                UserName = claims.FindFirst(ClaimTypes.Name).Value
+            };
+
+            return currentUser;
         }
     }
 }

@@ -4,8 +4,9 @@ namespace ShoppingCart.Application.Interfaces.Services
 {
     public interface ICartService
     {
-        CartDto AddToCart(CartDto cart);
         IEnumerable<CartDto> CartItems(int userId);
+        CartDto AddToCart(int userId, CartDto cart);
+        CartDto UpdateCart(int userId, CartDto cart);
         bool DeleteFromCart(int userId, int productId);
     }
 }
