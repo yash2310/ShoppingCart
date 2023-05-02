@@ -1,4 +1,5 @@
 ﻿using ShoppingCart.Application.DTOs.Product;
+using ShoppingCart.Domain.Entities;
 
 namespace ShoppingCart.Application.Interfaces.Services
 {
@@ -6,7 +7,7 @@ namespace ShoppingCart.Application.Interfaces.Services
     {
         bool CreateProduct(ProductCreateDto createDto);
         IEnumerable<ProductReadDto> GetProducts();
-        ProductReadDto GetProduct(int userId);
+        ProductReadDto GetProduct(int productId);
         ProductReadDto UpdateProduct(ProductUpdateDto updateDto);
     }
 }

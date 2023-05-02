@@ -1,29 +1,34 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCart.Application.Common;
 using ShoppingCart.Application.DTOs.Payment;
+using ShoppingCart.Application.DTOs.Product;
 using ShoppingCart.Application.Interfaces.Services;
+using ShoppingCart.Application.Services;
+using ShoppingCart.Domain.Entities;
 using ShoppingCart.Domain.Enums;
 
-namespace ShoppingCart.Payment.API.Controllers
+namespace ShoppingCart.Product.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PaymentsController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly IPaymentService paymentService;
+        private readonly IProductService productService;
 
-        public PaymentsController(IPaymentService paymentService)
+        public ProductsController(IProductService productService)
         {
-            this.paymentService = paymentService;
+            this.productService = productService;
         }
+
 
         [HttpGet("{id}"), Authorize]
         public IActionResult Get(int id)
         {
             try
             {
-                var data = paymentService.GetPayment(id);
+                var data = productService.GetProduct(id);
 
                 if (data == null)
                 {
@@ -39,11 +44,11 @@ namespace ShoppingCart.Payment.API.Controllers
         }
 
         [HttpPost, Authorize]
-        public IActionResult Create(PaymentCreateDto createDto)
+        public IActionResult Create(ProductCreateDto createDto)
         {
             try
             {
-                return Ok(paymentService.CreatePayment(createDto));
+                return Ok(ServiceResponse.CreateResponse(true, "", productService.CreateProduct(createDto)));
             }
             catch (Exception ex)
             {
@@ -51,12 +56,12 @@ namespace ShoppingCart.Payment.API.Controllers
             }
         }
 
-        [HttpPatch("{id}"), Authorize]
-        public IActionResult Update(int id, PaymentStatus status)
+        [HttpPatch, Authorize]
+        public IActionResult Update(ProductUpdateDto product)
         {
             try
             {
-                return Ok(paymentService.UpdatePayment(id, status));
+                return Ok(ServiceResponse.CreateResponse(true, "", productService.UpdateProduct(product)));
             }
             catch (Exception ex)
             {

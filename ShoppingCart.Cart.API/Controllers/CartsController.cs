@@ -1,14 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
-using Newtonsoft.Json.Linq;
 using ShoppingCart.Application.Common;
 using ShoppingCart.Application.DTOs.Cart;
 using ShoppingCart.Application.Interfaces.Services;
-using ShoppingCart.Domain.Entities;
-using ShoppingCart.Domain.Enums;
 
 namespace ShoppingCart.Cart.API.Controllers
 {

@@ -22,8 +22,7 @@ namespace ShoppingCart.Order.API.Controllers
             this.messageBusClient = messageBusClient;
         }
 
-        [HttpGet]
-        [Authorize]
+        [HttpGet, Authorize]
         public IActionResult GetAll()
         {
             try
@@ -36,7 +35,7 @@ namespace ShoppingCart.Order.API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public IActionResult Get(int id)
         {
             try
@@ -56,7 +55,7 @@ namespace ShoppingCart.Order.API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult Create(OrderCreateDto createDto)
         {
             try
@@ -82,7 +81,7 @@ namespace ShoppingCart.Order.API.Controllers
             }
         }
 
-        [HttpPatch("{id}")]
+        [HttpPatch("{id}"), Authorize]
         public IActionResult Update(int id, OrderStatus status)
         {
             try

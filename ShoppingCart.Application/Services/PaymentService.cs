@@ -24,6 +24,7 @@ namespace ShoppingCart.Application.Services
             var payment = mapper.Map<Payment>(createDto);
 
             repository.Add(payment);
+            repository.SaveChanges();
 
             var paymentRead = mapper.Map<PaymentReadDto>(payment);
 
@@ -55,6 +56,7 @@ namespace ShoppingCart.Application.Services
                 payment.UpdatedOn = DateTime.Now;
 
                 repository.Update(payment);
+                repository.SaveChanges();
 
                 var paymentRead = mapper.Map<PaymentReadDto>(payment);
 

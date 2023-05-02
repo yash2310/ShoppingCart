@@ -28,6 +28,7 @@ namespace ShoppingCart.Application.Services
             orderDetail.UpdatedOn = DateTime.Now;
 
             repository.Add(orderDetail);
+            repository.SaveChanges();
 
             var orderReadDto = mapper.Map<OrderReadDto>(orderDetail);
 
@@ -55,6 +56,7 @@ namespace ShoppingCart.Application.Services
             if (orderDetail != null)
             {
                 repository.Update(orderDetail);
+                repository.SaveChanges();
 
                 return mapper.Map<OrderReadDto>(orderDetail);
             }
