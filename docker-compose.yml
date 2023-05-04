@@ -1,0 +1,63 @@
+version: '3.4'
+
+services:
+  shoppingcart.cart.api:
+    image: ${DOCKER_REGISTRY-}cartapi
+    container_name: cartapi
+    hostname: localhost
+    ports:
+    - 6010:8010
+    build:
+      context: .
+      dockerfile: ShoppingCart.Cart.API/Dockerfile
+
+  shoppingcart.discount.api:
+    image: ${DOCKER_REGISTRY-}discountapi
+    container_name: discountapi
+    hostname: localhost
+    ports:
+    - 6020:8020
+    build:
+      context: .
+      dockerfile: ShoppingCart.Discount.API/Dockerfile
+
+  shoppingcart.order.api:
+    image: ${DOCKER_REGISTRY-}orderapi
+    container_name: orderapi
+    hostname: localhost
+    ports:
+    - 6030:8030
+    build:
+      context: .
+      dockerfile: ShoppingCart.Order.API/Dockerfile
+
+  shoppingcart.payment.api:
+    image: ${DOCKER_REGISTRY-}paymentapi
+    container_name: paymentapi
+    hostname: localhost
+    ports:
+    - 6040:8040
+    build:
+      context: .
+      dockerfile: ShoppingCart.Payment.API/Dockerfile
+
+  shoppingcart.product.api:
+    image: ${DOCKER_REGISTRY-}productapi
+    container_name: productapi
+    hostname: localhost
+    ports:
+    - 6050:8050
+    build:
+      context: .
+      dockerfile: ShoppingCart.Product.API/Dockerfile
+
+  shoppingcart.user.api:
+    image: ${DOCKER_REGISTRY-}userapi
+    container_name: userapi
+    hostname: localhost
+    ports:
+    - 6060:8060
+    build:
+      context: .
+      dockerfile: ShoppingCart.User.API/Dockerfile
+
