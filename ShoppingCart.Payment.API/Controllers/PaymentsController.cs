@@ -38,7 +38,7 @@ namespace ShoppingCart.Payment.API.Controllers
             }
         }
 
-        [HttpPost, Authorize]
+        [HttpPost("add"), Authorize]
         public IActionResult Create(PaymentCreateDto createDto)
         {
             try
@@ -51,7 +51,7 @@ namespace ShoppingCart.Payment.API.Controllers
             }
         }
 
-        [HttpPatch("{id}"), Authorize]
+        [HttpPatch("update/{id}"), Authorize]
         public IActionResult Update(int id, PaymentStatus status)
         {
             try

@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>8c18d236-bc60-4224-8d9a-7e6d4f52c4c4</ProjectGuid>
+    <ProjectGuid>d465c7b3-5781-44f6-8ed4-b27f432b5752</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>shoppingcart.cart.api</DockerServiceName>

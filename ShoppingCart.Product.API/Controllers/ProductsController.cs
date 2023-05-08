@@ -43,7 +43,7 @@ namespace ShoppingCart.Product.API.Controllers
             }
         }
 
-        [HttpPost, Authorize]
+        [HttpPost("add"), Authorize]
         public IActionResult Create(ProductCreateDto createDto)
         {
             try
@@ -56,7 +56,7 @@ namespace ShoppingCart.Product.API.Controllers
             }
         }
 
-        [HttpPatch, Authorize]
+        [HttpPost("update"), Authorize]
         public IActionResult Update(ProductUpdateDto product)
         {
             try

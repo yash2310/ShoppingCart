@@ -55,7 +55,7 @@ namespace ShoppingCart.Order.API.Controllers
             }
         }
 
-        [HttpPost, Authorize]
+        [HttpPost("add"), Authorize]
         public IActionResult Create(OrderCreateDto createDto)
         {
             try
@@ -81,7 +81,7 @@ namespace ShoppingCart.Order.API.Controllers
             }
         }
 
-        [HttpPatch("{id}"), Authorize]
+        [HttpPatch("update/{id}"), Authorize]
         public IActionResult Update(int id, OrderStatus status)
         {
             try

@@ -3,61 +3,61 @@ version: '3.4'
 services:
   shoppingcart.cart.api:
     image: ${DOCKER_REGISTRY-}cartapi
-    container_name: cartapi
-    hostname: localhost
+    container_name: CartAPI
     ports:
-    - 6010:8010
+    - 8001:80
+    expose:
+    - 8001
     build:
       context: .
       dockerfile: ShoppingCart.Cart.API/Dockerfile
-
   shoppingcart.discount.api:
     image: ${DOCKER_REGISTRY-}discountapi
-    container_name: discountapi
-    hostname: localhost
+    container_name: DiscountAPI
     ports:
-    - 6020:8020
+    - 8002:80
+    expose:
+    - 8002
     build:
       context: .
       dockerfile: ShoppingCart.Discount.API/Dockerfile
-
   shoppingcart.order.api:
     image: ${DOCKER_REGISTRY-}orderapi
-    container_name: orderapi
-    hostname: localhost
+    container_name: OrderAPI
     ports:
-    - 6030:8030
+    - 8003:80
+    expose:
+    - 8003
     build:
       context: .
       dockerfile: ShoppingCart.Order.API/Dockerfile
-
   shoppingcart.payment.api:
     image: ${DOCKER_REGISTRY-}paymentapi
-    container_name: paymentapi
-    hostname: localhost
+    container_name: PaymentAPI
     ports:
-    - 6040:8040
+    - 8004:80
+    expose:
+    - 8004
     build:
       context: .
       dockerfile: ShoppingCart.Payment.API/Dockerfile
-
   shoppingcart.product.api:
     image: ${DOCKER_REGISTRY-}productapi
-    container_name: productapi
-    hostname: localhost
+    container_name: ProductAPI
     ports:
-    - 6050:8050
+    - 8005:80
+    expose:
+    - 8005
     build:
       context: .
       dockerfile: ShoppingCart.Product.API/Dockerfile
-
   shoppingcart.user.api:
     image: ${DOCKER_REGISTRY-}userapi
-    container_name: userapi
-    hostname: localhost
+    container_name: UserAPI
     ports:
-    - 6060:8060
+    - 8006:80
+    expose:
+    - 8006
     build:
       context: .
       dockerfile: ShoppingCart.User.API/Dockerfile
-

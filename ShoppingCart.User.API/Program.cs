@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using ShoppingCart.Application.Authentication;
 using ShoppingCart.Application.Interfaces.Repositories;
@@ -37,7 +38,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
-    option.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+    ILogger logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
+    try
+    {
+        option.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+    }
+    catch(Exception ex)
+    {
+        logger.LogInformation("Program File - Connection string : " + configuration.GetConnectionString("DefaultConnection"));
+        logger.LogInformation("Options value : " + option);
+
+        logger.LogInformation(ex.Message);
+    }
 });
 
 #endregion
@@ -45,11 +57,11 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+app.UseSwagger();
+app.UseSwaggerUI();
+//}
 
 app.UseHttpsRedirection();
 
